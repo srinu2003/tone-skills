@@ -1,5 +1,5 @@
 ---
-name: formal-technical-tone-b
+name: formal-technical-tone
 description: "Guidelines and templates for authoring formal, enterprise-grade technical specifications, architecture whitepapers, RFCs, client-facing system designs, and executive leadership documents with authoritative third-person precision."
 ---
 
@@ -16,17 +16,17 @@ The core goal: **Deliver rigorous, authoritative, and professionally structured 
 ### 1. Authoritative Third-Person Voice
 
 - Write with formal engineering rigor (_"The architecture implements...", "The system evaluates...", "Data integrity is enforced via..."_).
-- Maintain an objective, professional tone without informal colloquialisms.
+- Maintain an objective, professional tone without informal colloquialisms, first-person pronouns (_"I"_, _"we"_), or subjective editorializing.
 
 ### 2. Comprehensive Technical Architecture
 
 - Provide formal component breakdowns, system context diagrams/flows, and interaction lifecycles.
-- Explicitly detail security boundaries, cross-origin communication policies (CORS, CSP, postMessage), and state management.
+- Explicitly detail security boundaries, cross-origin communication policies (CORS, CSP, TLS), and state management.
 
 ### 3. Formal Decision Matrices & Compliance
 
 - Present exhaustive evaluation criteria (Licensing, Telemetry/Privacy, Performance, SLA, Security Boundaries).
-- Document compliance against enterprise standards (SOC2, GDPR, Salesforce Security Review, LWS).
+- Document compliance against enterprise standards (SOC2, GDPR, ISO 27001, security boundaries, and zero-trust policies).
 
 ### 4. Structured & Polished Presentation
 
@@ -36,11 +36,13 @@ The core goal: **Deliver rigorous, authoritative, and professionally structured 
 
 ## 2. Standard Specification Template
 
+When generating formal architecture documents or RFCs, utilize the following structural standard:
+
 ```markdown
 # [Project / Component Name] — Technical Architecture & Feasibility Specification
 
 **Document Version:** 1.0  
-**Target Platform:** Salesforce Lightning Platform / Enterprise Stack  
+**Target Platform:** [Target Environment / Cloud Provider / Runtime Stack]  
 **Classification:** Technical Architecture Specification
 
 ---
@@ -50,36 +52,36 @@ The core goal: **Deliver rigorous, authoritative, and professionally structured 
 | Evaluation Dimension       | Primary Recommendation                   | Secondary Alternative | Deprecated Option |
 | :------------------------- | :--------------------------------------- | :-------------------- | :---------------- |
 | **Component**              | **[Recommended Option]**                 | **[Alternative]**     | **[Deprecated]**  |
-| **Licensing**              | MIT (Open Source, Commercial $0)         | MIT                   | Legacy MIT        |
-| **Security & Telemetry**   | Zero external telemetry (Self-contained) | Sandboxed iframe      | CSP Risk          |
-| **Platform Compatibility** | 100% Native LWC / LWS                    | Full (via iframe)     | Incompatible      |
+| **Licensing**              | MIT (Open Source, Commercial $0)         | Apache 2.0            | Proprietary       |
+| **Security & Telemetry**   | Zero external telemetry (Self-contained) | Sandboxed isolation   | Unverified CDN    |
+| **Platform Compatibility** | Native Runtime Compliant                 | Containerized / Proxy | Incompatible      |
 
 ---
 
 ## 2. Architectural Design & Integration Patterns
 
-### 2.1 Native Component Architecture
+### 2.1 Component Architecture & Lifecycles
 
-- Description of DOM mounting, module bundling, and lifecycle hooks.
+- Description of component mounting, dependency bundling, and service lifecycles.
 
 ### 2.2 Security Sandboxing & Isolation
 
-- Description of postMessage protocols, token exchanges, and CSP compliance.
+- Description of authorization models, token exchange mechanisms, and boundary isolation.
 
 ---
 
 ## 3. Risk Assessment & Compliance
 
-| Risk Category                | Potential Impact | Mitigation Strategy                                                      |
-| :--------------------------- | :--------------- | :----------------------------------------------------------------------- |
-| **Platform Security (LWS)**  | Medium           | Host Web Worker-dependent libraries inside sandboxed iframes.            |
-| **Data Privacy & Telemetry** | Low              | Package all assets locally in Static Resources; zero external CDN calls. |
+| Risk Category                     | Potential Impact | Mitigation Strategy                                                              |
+| :-------------------------------- | :--------------- | :------------------------------------------------------------------------------- |
+| **Runtime & Security Boundaries** | Medium           | Isolate untrusted third-party dependencies within sandboxed workers/containers.  |
+| **Data Privacy & Telemetry**      | Low              | Package all dependencies locally in private artifact registries; zero CDN calls. |
 
 ---
 
 ## 4. Implementation Roadmap & Rollout Strategy
 
-1. **Phase 1: Foundation & Asset Packaging** (Static Resource configuration)
+1. **Phase 1: Foundation & Asset Packaging** (Private artifact onboarding & integrity validation)
 2. **Phase 2: Component Integration & Event Wiring**
-3. **Phase 3: Security & Governor Limits Validation**
+3. **Phase 3: Security & Governor/Performance Limits Validation**
 ```
