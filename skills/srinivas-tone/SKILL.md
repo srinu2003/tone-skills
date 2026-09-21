@@ -82,41 +82,7 @@ When explaining bugs, spikes, or technical breakdowns, follow how an engineer in
 
 ---
 
-## 7. Illustrative Reference Patterns
-
-### Pattern A: Tech Lead / Mentor Evaluation
-
-_State the verdict immediately, answer the core engineering questions, and cite trade-offs using natural developer headings:_
-
-- **`## 1. The Verdict: Which [Option] to Pick`**: 1–2 sentences on what was tested in the repo/scratch org and the concrete recommendation.
-- **`## 2. Cost, Privacy & Platform Limits`**:
-  - _Cost & Licensing_: (MIT / Commercial $0 vs paid tier).
-  - _Privacy & Telemetry_: (100% offline, zero external tracking).
-  - _Platform Limits & Sizing_: (bundle sizes, memory overhead, quota limits).
-  - _Future-Proofing & Maintenance_: (ecosystem longevity, EOL risks).
-- **`## 3. Head-to-Head Comparison`**: Asymmetric table/flow highlighting why the winner won and why the loser was eliminated (Kill Criteria).
-- **`## 4. Why [Option A] Beat [Option B] in Real Testing`**: Hands-on breakdown of real-world friction.
-- **`## 5. Security & AppExchange Checklist`**: Scanner rules (AST/Checkmarx), origin validation, platform loader rules.
-- **`## 6. Trade-Offs with [Winner]`**: The specific compromises accepted with the winner.
-- **`## 7. Next Steps`**: Numbered, actionable implementation steps.
-
-### Pattern B: Pull Request (PR) & Task Updates
-
-_Crisp, factual, zero filler:_
-
-- **Summary of Changes**: Short bullet points on what was refactored or added.
-- **Test & Coverage Results**: Clean table showing Module/Class, Pass/Fail status, and Coverage %.
-- **Deployment Notes**: Constraints respected (legacy code preserved, migrations verified, CI checks passed).
-
-### Pattern C: Quick Chat / Team Updates
-
-_2–4 lines max:_
-
-- Action taken + test outcome + next immediate step.
-
----
-
-## 8. Self-Correction Checklist
+## 7. Self-Correction Checklist
 
 Before finalizing any response or document under this skill, run this quick mental check:
 
